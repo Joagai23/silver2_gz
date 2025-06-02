@@ -1,0 +1,870 @@
+<?xml version="1.0" ?>
+<sdf version="1.11">
+    <model name="prettysilver2">
+    <!-- BODY LINK -->
+        <link name="body_link">
+            <pose>0 0 0 0 0 0</pose>
+            <inertial>                           
+                <mass>140.0</mass>
+                <inertia>
+                    <ixx>2.916</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>4.579</iyy>
+                    <iyz>0</iyz>
+                    <izz>5.395</izz>
+                </inertia>
+            </inertial>
+            <collision name="collision">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_Body.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name="visual">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_Body.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+
+    <!-- LEG-0 -->
+        <!-- COXA JOINT AND LINK-->
+        <joint name="coxa_joint_0" type="revolute">
+            <pose>0.0 0.0 -2.55 0 3.14 0</pose>
+            <parent>body_link</parent>
+            <child>coxa_link_0</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-3.14</lower>
+                    <upper>3.14</upper>
+                    <effort>250.0</effort>
+                    <velocity>10.0</velocity> 
+                </limit>
+            </axis>
+        </joint>
+        <link name="coxa_link_0">
+            <pose>0.0 0.0 -2.55 0 3.14 0</pose>
+            <inertial>                           
+                <mass>0.301</mass>
+                <inertia>
+                    <ixx>0.00044</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.00044</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.00037</izz>
+                </inertia>
+            </inertial>
+            <visual name="visual">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_Coxa_Mirrored.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <collision name="collision">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_Coxa_Mirrored.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+
+        <!-- FEMUR JOINT AND LINK-->
+        <joint name="femur_joint_0" type="revolute">
+            <pose>0.0 0.0 -2.55 0 3.14 0</pose>
+            <parent>coxa_link_0</parent>
+            <child>femur_link_0</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-3.14</lower>
+                    <upper>3.14</upper>
+                    <effort>250.0</effort>
+                    <velocity>10.0</velocity> 
+                </limit>
+            </axis>
+        </joint>
+        <link name="femur_link_0">
+            <pose>0.0 0.0 -2.55 0 3.14 0</pose>
+            <inertial>
+                <mass>0.501</mass>
+                <inertia>
+                    <ixx>0.00376</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.00004</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.00379</izz>
+                </inertia>
+            </inertial>
+            <visual name="visual">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_Femur_Mirrored.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <collision name="collision">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_Femur_Mirrored.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+
+        <!-- TIBIA JOINT AND LINK-->
+        <joint name="tibia_joint_0" type="revolute">
+            <pose>0.0 0.0 -2.55 0 3.14 0</pose>
+            <parent>femur_link_0</parent>
+            <child>tibia_link_0</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-3.14</lower>
+                    <upper>3.14</upper>
+                    <effort>250.0</effort>
+                    <velocity>10.0</velocity> 
+                </limit>
+            </axis>
+        </joint>
+        <link name="tibia_link_0">
+            <pose>0.0 0.0 -2.55 0 3.14 0</pose>
+            <inertial>
+                <mass>0.401</mass>
+                <inertia>
+                    <ixx>0.00376</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.00004</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.00379</izz>
+                </inertia>
+            </inertial>
+            <visual name="visual">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_TibiaFoot_Mirrored.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <collision name="collision">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_TibiaFoot_Mirrored.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+
+    <!-- LEG-1 -->
+        <!-- COXA JOINT AND LINK-->
+        <joint name="coxa_joint_1" type="revolute">
+            <pose>0.0 0.0 -3.675 0 3.14 0</pose>
+            <parent>body_link</parent>
+            <child>coxa_link_1</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-3.14</lower>
+                    <upper>3.14</upper>
+                    <effort>250.0</effort>
+                    <velocity>10.0</velocity> 
+                </limit>
+            </axis>
+        </joint>
+        <link name="coxa_link_1">
+            <pose>0.0 0.0 -3.675 0 3.14 0</pose>
+            <inertial>                           
+                <mass>0.301</mass>
+                <inertia>
+                    <ixx>0.00044</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.00044</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.00037</izz>
+                </inertia>
+            </inertial>
+            <visual name="visual">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_Coxa_Mirrored.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <collision name="collision">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_Coxa_Mirrored.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+
+        <!-- FEMUR JOINT AND LINK-->
+        <joint name="femur_joint_1" type="revolute">
+            <pose>0.0 0.0 -3.675 0 3.14 0</pose>
+            <parent>coxa_link_1</parent>
+            <child>femur_link_1</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-3.14</lower>
+                    <upper>3.14</upper>
+                    <effort>250.0</effort>
+                    <velocity>10.0</velocity> 
+                </limit>
+            </axis>
+        </joint>
+        <link name="femur_link_1">
+            <pose>0.0 0.0 -3.675 0 3.14 0</pose>
+            <inertial>
+                <mass>0.501</mass>
+                <inertia>
+                    <ixx>0.00376</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.00004</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.00379</izz>
+                </inertia>
+            </inertial>
+            <visual name="visual">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_Femur_Mirrored.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <collision name="collision">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_Femur_Mirrored.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+
+        <!-- TIBIA JOINT AND LINK-->
+        <joint name="tibia_joint_1" type="revolute">
+            <pose>0.0 0.0 -3.675 0 3.14 0</pose>
+            <parent>femur_link_1</parent>
+            <child>tibia_link_1</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-3.14</lower>
+                    <upper>3.14</upper>
+                    <effort>250.0</effort>
+                    <velocity>10.0</velocity> 
+                </limit>
+            </axis>
+        </joint>
+        <link name="tibia_link_1">
+            <pose>0.0 0.0 -3.675 0 3.14 0</pose>
+            <inertial>
+                <mass>0.401</mass>
+                <inertia>
+                    <ixx>0.00376</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.00004</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.00379</izz>
+                </inertia>
+            </inertial>
+            <visual name="visual">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_TibiaFoot_Mirrored.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <collision name="collision">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_TibiaFoot_Mirrored.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+
+    <!-- LEG-2 -->
+        <!-- COXA JOINT AND LINK-->
+        <joint name="coxa_joint_2" type="revolute">
+            <pose>0.0 0.0 -2.5 0 3.14 0</pose>
+            <parent>body_link</parent>
+            <child>coxa_link_2</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-3.14</lower>
+                    <upper>3.14</upper>
+                    <effort>250.0</effort>
+                    <velocity>10.0</velocity> 
+                </limit>
+            </axis>
+        </joint>
+        <link name="coxa_link_2">
+            <pose>0.0 0.0 -2.5 0 3.14 0</pose>
+            <inertial>                           
+                <mass>0.301</mass>
+                <inertia>
+                    <ixx>0.00044</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.00044</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.00037</izz>
+                </inertia>
+            </inertial>
+            <visual name="visual">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_Coxa.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <collision name="collision">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_Coxa.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+
+        <!-- FEMUR JOINT AND LINK-->
+        <joint name="femur_joint_2" type="revolute">
+            <pose>0.0 0.0 -2.5 0 3.14 0</pose>
+            <parent>coxa_link_2</parent>
+            <child>femur_link_2</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-3.14</lower>
+                    <upper>3.14</upper>
+                    <effort>250.0</effort>
+                    <velocity>10.0</velocity> 
+                </limit>
+            </axis>
+        </joint>
+        <link name="femur_link_2">
+            <pose>0.0 0.0 -2.5 0 3.14 0</pose>
+            <inertial>
+                <mass>0.501</mass>
+                <inertia>
+                    <ixx>0.00376</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.00004</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.00379</izz>
+                </inertia>
+            </inertial>
+            <visual name="visual">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_Femur.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <collision name="collision">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_Femur.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+
+        <!-- TIBIA JOINT AND LINK-->
+        <joint name="tibia_joint_2" type="revolute">
+            <pose>0.0 0.0 -2.5 0 3.14 0</pose>
+            <parent>femur_link_2</parent>
+            <child>tibia_link_2</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-3.14</lower>
+                    <upper>3.14</upper>
+                    <effort>250.0</effort>
+                    <velocity>10.0</velocity> 
+                </limit>
+            </axis>
+        </joint>
+        <link name="tibia_link_2">
+            <pose>0.0 0.0 -2.5 0 3.14 0</pose>
+            <inertial>
+                <mass>0.401</mass>
+                <inertia>
+                    <ixx>0.00376</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.00004</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.00379</izz>
+                </inertia>
+            </inertial>
+            <visual name="visual">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_TibiaFoot.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <collision name="collision">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_TibiaFoot.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+
+    <!-- LEG-3 -->
+        <!-- COXA JOINT AND LINK-->
+        <joint name="coxa_joint_3" type="revolute">
+            <pose>0.0 0.0 0.0 0 0 0</pose>
+            <parent>body_link</parent>
+            <child>coxa_link_3</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-3.14</lower>
+                    <upper>3.14</upper>
+                    <effort>250.0</effort>
+                    <velocity>10.0</velocity> 
+                </limit>
+            </axis>
+        </joint>
+        <link name="coxa_link_3">
+            <pose>0.0 0.0 0.0 0 0 0</pose>
+            <inertial>                           
+                <mass>0.301</mass>
+                <inertia>
+                    <ixx>0.00044</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.00044</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.00037</izz>
+                </inertia>
+            </inertial>
+            <visual name="visual">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_Coxa.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <collision name="collision">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_Coxa.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+
+        <!-- FEMUR JOINT AND LINK-->
+        <joint name="femur_joint_3" type="revolute">
+            <pose>0.0 0.0 0.0 0 0 0</pose>
+            <parent>coxa_link_3</parent>
+            <child>femur_link_3</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-3.14</lower>
+                    <upper>3.14</upper>
+                    <effort>250.0</effort>
+                    <velocity>10.0</velocity> 
+                </limit>
+            </axis>
+        </joint>
+        <link name="femur_link_3">
+            <pose>0.0 0.0 0.0 0 0 0</pose>
+            <inertial>
+                <mass>0.501</mass>
+                <inertia>
+                    <ixx>0.00376</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.00004</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.00379</izz>
+                </inertia>
+            </inertial>
+            <visual name="visual">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_Femur.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <collision name="collision">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_Femur.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+
+        <!-- TIBIA JOINT AND LINK-->
+        <joint name="tibia_joint_3" type="revolute">
+            <pose>0.0 0.0 0.0 0 0 0</pose>
+            <parent>femur_link_3</parent>
+            <child>tibia_link_3</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-3.14</lower>
+                    <upper>3.14</upper>
+                    <effort>250.0</effort>
+                    <velocity>10.0</velocity> 
+                </limit>
+            </axis>
+        </joint>
+        <link name="tibia_link_3">
+            <pose>0.0 0.0 0.0 0 0 0</pose>
+            <inertial>
+                <mass>0.401</mass>
+                <inertia>
+                    <ixx>0.00376</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.00004</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.00379</izz>
+                </inertia>
+            </inertial>
+            <visual name="visual">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_TibiaFoot.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <collision name="collision">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_TibiaFoot.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+
+    <!-- LEG-4 -->
+        <!-- COXA JOINT AND LINK-->
+        <joint name="coxa_joint_4" type="revolute">
+            <pose>0.0 0.0 -1.15 0 0 0</pose>
+            <parent>body_link</parent>
+            <child>coxa_link_4</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-3.14</lower>
+                    <upper>3.14</upper>
+                    <effort>250.0</effort>
+                    <velocity>10.0</velocity> 
+                </limit>
+            </axis>
+        </joint>
+        <link name="coxa_link_4">
+            <pose>0 0 -1.15 0 0 0</pose>
+            <inertial>                           
+                <mass>0.301</mass>
+                <inertia>
+                    <ixx>0.00044</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.00044</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.00037</izz>
+                </inertia>
+            </inertial>
+            <visual name="visual">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_Coxa.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <collision name="collision">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_Coxa.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+
+        <!-- FEMUR JOINT AND LINK-->
+        <joint name="femur_joint_4" type="revolute">
+            <pose>0.0 0.0 -1.15 0 0 0</pose>
+            <parent>coxa_link_4</parent>
+            <child>femur_link_4</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-3.14</lower>
+                    <upper>3.14</upper>
+                    <effort>250.0</effort>
+                    <velocity>10.0</velocity> 
+                </limit>
+            </axis>
+        </joint>
+        <link name="femur_link_4">
+            <pose>0 0 -1.15 0 0 0</pose>
+            <inertial>
+                <mass>0.501</mass>
+                <inertia>
+                    <ixx>0.00376</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.00004</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.00379</izz>
+                </inertia>
+            </inertial>
+            <visual name="visual">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_Femur.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <collision name="collision">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_Femur.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+
+        <!-- TIBIA JOINT AND LINK-->
+        <joint name="tibia_joint_4" type="revolute">
+            <pose>0.0 0.0 -1.15 0 0 0</pose>
+            <parent>femur_link_4</parent>
+            <child>tibia_link_4</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-3.14</lower>
+                    <upper>3.14</upper>
+                    <effort>250.0</effort>
+                    <velocity>10.0</velocity> 
+                </limit>
+            </axis>
+        </joint>
+        <link name="tibia_link_4">
+            <pose>0 0 -1.15 0 0 0</pose>
+            <inertial>
+                <mass>0.401</mass>
+                <inertia>
+                    <ixx>0.00376</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.00004</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.00379</izz>
+                </inertia>
+            </inertial>
+            <visual name="visual">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_TibiaFoot.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <collision name="collision">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_TibiaFoot.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+
+    <!-- LEG-5 -->
+        <!-- COXA JOINT AND LINK-->
+        <joint name="coxa_joint_5" type="revolute">
+            <pose>0.0 0.0 0 0 0 0</pose>
+            <parent>body_link</parent>
+            <child>coxa_link_5</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-3.14</lower>
+                    <upper>3.14</upper>
+                    <effort>250.0</effort>
+                    <velocity>10.0</velocity> 
+                </limit>
+            </axis>
+        </joint>
+        <link name="coxa_link_5">
+            <pose>0 0 0 0 0 0</pose>
+            <inertial>                           
+                <mass>0.301</mass>
+                <inertia>
+                    <ixx>0.00044</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.00044</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.00037</izz>
+                </inertia>
+            </inertial>
+            <visual name="visual">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_Coxa_Mirrored.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <collision name="collision">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_Coxa_Mirrored.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+
+        <!-- FEMUR JOINT AND LINK-->
+        <joint name="femur_joint_5" type="revolute">
+            <pose>0.0 0.0 0 0 0 0</pose>
+            <parent>coxa_link_5</parent>
+            <child>femur_link_5</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-3.14</lower>
+                    <upper>3.14</upper>
+                    <effort>250.0</effort>
+                    <velocity>10.0</velocity> 
+                </limit>
+            </axis>
+        </joint>
+        <link name="femur_link_5">
+            <pose>0 0 0 0 0 0</pose>
+            <inertial>
+                <mass>0.501</mass>
+                <inertia>
+                    <ixx>0.00376</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.00004</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.00379</izz>
+                </inertia>
+            </inertial>
+            <visual name="visual">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_Femur_Mirrored.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <collision name="collision">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_Femur_Mirrored.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+
+        <!-- TIBIA JOINT AND LINK-->
+        <joint name="tibia_joint_5" type="revolute">
+            <pose>0.0 0.0 0 0 0 0</pose>
+            <parent>femur_link_5</parent>
+            <child>tibia_link_5</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-3.14</lower>
+                    <upper>3.14</upper>
+                    <effort>250.0</effort>
+                    <velocity>10.0</velocity> 
+                </limit>
+            </axis>
+        </joint>
+        <link name="tibia_link_5">
+            <pose>0 0 0 0 0 0</pose>
+            <inertial>
+                <mass>0.401</mass>
+                <inertia>
+                    <ixx>0.00376</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.00004</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.00379</izz>
+                </inertia>
+            </inertial>
+            <visual name="visual">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_TibiaFoot_Mirrored.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <collision name="collision">
+                <geometry>
+                    <mesh>
+                        <uri>meshes/SILVER2_TibiaFoot_Mirrored.fbx</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+    </model>
+</sdf>
