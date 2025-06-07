@@ -19,14 +19,14 @@ def generate_launch_description():
     # Ensure the internal launch file also sets use_sim_time=true if it launches robot_state_publisher directly
     rsp = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
-                    package_share_dir,'launch','rsp_silver_modern.launch.py'
+                    package_share_dir,'launch','rsp_silver.launch.py'
                 )]),
                 # Pass use_sim_time and use_ros2_control arguments
                 launch_arguments={'use_sim_time': 'true', 'use_ros2_control': 'true'}.items()
     )
 
     # Path to your custom world file
-    world_path = os.path.join(package_share_dir, 'worlds', 'simple_world.sdf')
+    world_path = os.path.join(package_share_dir, 'worlds', 'silver.sdf')
 
     # Use ros_gz_sim to launch Gazebo
     # gz_args can be used to pass arguments to the gz sim server
@@ -61,7 +61,7 @@ def generate_launch_description():
             '-topic', 'robot_description', # Use the standard topic name
             '-name', 'silver',             # Name of the entity in Gazebo
             '-allow_renaming', 'true',     # Allow renaming if the name already exists
-            '-z', '0.7'                    # Initial Z position
+            '-z', '1.0'                    # Initial Z position
         ],
         output='screen'
     )
