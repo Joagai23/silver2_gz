@@ -32,9 +32,9 @@
 
     <link name="body_link">
         <visual>
-            <origin xyz="0.0 0.0 0.0" rpy="1.57 0.0 1.57"/>
+            <origin xyz="0.05 0.0 0.0" rpy="1.57 0.0 1.57"/>
             <geometry>
-                <mesh filename="$(find silver)/models/silver2/meshes/SILVER2_Body_Simplified.fbx" scale="0.45 0.45 0.55"/>
+                <mesh filename="file://$(find silver)/models/silver2/meshes/SILVER2_Body_Simplified.fbx" scale="0.35 0.4 0.45"/>
             </geometry>
         </visual>
         <collision>

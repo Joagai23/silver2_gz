@@ -26,7 +26,7 @@ def generate_launch_description():
     )
 
     # Path to your custom world file
-    world_path = os.path.join(package_share_dir, 'worlds', 'silver.sdf')
+    world_path = os.path.join(package_share_dir, 'worlds', 'sand_world.sdf')
 
     # Use ros_gz_sim to launch Gazebo
     # gz_args can be used to pass arguments to the gz sim server
@@ -61,7 +61,9 @@ def generate_launch_description():
             '-topic', 'robot_description', # Use the standard topic name
             '-name', 'silver',             # Name of the entity in Gazebo
             '-allow_renaming', 'true',     # Allow renaming if the name already exists
-            '-z', '1.0'                    # Initial Z position
+            '-x', '0.0',                  # Initial X position
+            '-y', '-10.0',                  # Initial Y position
+            '-z', '-9.0'                   # Initial Z position
         ],
         output='screen'
     )

@@ -22,7 +22,7 @@
             <visual>
                 <origin xyz="${reflect*coxa_link_visual_Ox} ${coxa_link_visual_Oy} ${coxa_link_visual_Oz}" rpy="1.57 0.0 0.0"/>
                 <geometry>
-                    <mesh filename="$(find silver)/models/silver2/meshes/SILVER2_Coxa_Simplified.fbx" scale="0.45 0.45 0.45"/>
+                    <mesh filename="file://$(find silver)/models/silver2/meshes/SILVER2_Coxa_Simplified.fbx" scale="0.45 0.45 0.45"/>
                 </geometry>
             </visual>
             <collision>
@@ -50,7 +50,7 @@
             <visual>
                 <origin xyz="${femur_link_visual_Ox} ${femur_link_visual_Oy} ${reflect*femur_link_visual_Oz}" rpy="0.0 0.0 0.0"/>
                 <geometry>
-                    <mesh filename="$(find silver)/models/silver2/meshes/SILVER2_Femur_Simplified.fbx" scale="0.5 0.5 0.5"/>
+                    <mesh filename="file://$(find silver)/models/silver2/meshes/SILVER2_Femur_Simplified.fbx" scale="0.5 0.5 0.5"/>
                 </geometry>
             </visual>
             <collision>
@@ -77,7 +77,7 @@
             <visual>
                 <origin xyz="${tibia_link_visual_Ox} ${tibia_link_visual_Oy} ${tibia_link_visual_Oz}" rpy="0.0 0.0 0.0"/>
                 <geometry>
-                    <mesh filename="$(find silver)/models/silver2/meshes/SILVER2_Tibia_Simplified.fbx" scale="0.5 0.45 0.5"/>
+                    <mesh filename="file://$(find silver)/models/silver2/meshes/SILVER2_Tibia_Simplified.fbx" scale="0.5 0.45 0.5"/>
                 </geometry>
             </visual>
             <collision>

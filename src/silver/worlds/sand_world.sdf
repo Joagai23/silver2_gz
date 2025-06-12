@@ -107,13 +107,5 @@
      <uri>file://models/sand_heightmap</uri>
      <pose>0 0 -10 0 0 0</pose>
     </include>
-
-    <!-- INCLUDE SILVER2 MODEL -->
-    <include>
-      <uri>file://models/silver2</uri>
-      <name>silver2 robot</name>
-      <pose>5.0 0 0 1.57 0 0</pose>
-      <size>.25 .25 .25</size>
-    </include>
   </world>
 </sdf>
