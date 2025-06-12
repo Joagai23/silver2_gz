@@ -79,13 +79,14 @@
       <cast_shadows>false</cast_shadows>
     </light>
     
+    <!-- Water surface (aka: blue translucent plane) -->
     <model name="water_plane">
       <static>true</static>
       <link name="link">
         <visual name="water_plane">
           <geometry>
             <plane>
-              <size>200 200</size>
+              <size>50 50</size>
               <normal>0 0 1</normal>
             </plane>
           </geometry>
@@ -98,14 +99,16 @@
       </link>
     </model>
 
+    <!-- AUV Model (Tethys) -->
     <include>
      <uri>file://models/goztas_AUV</uri>
-     <pose>0 7 -0 0 0 0</pose>
+     <pose>0 -2 -0 0 0 0</pose>
     </include>
 
+    <!-- Sand Heightmap -->
     <include>
      <uri>file://models/sand_heightmap</uri>
-     <pose>0 0 -10 0 0 0</pose>
+     <pose>0 0 -2 0 0 0</pose>
     </include>
   </world>
 </sdf>

@@ -12,7 +12,7 @@
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
-     limitations under the License.
+     limitations under the License. <scale>0.5 0.5 0.25</scale>
 -->
 <sdf version="1.5">
   <model name="sand_heightmap">
@@ -22,7 +22,7 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <scale>0.5 0.5 0.25</scale>
+            <scale>0.1 0.1 0.05</scale>
             <uri>file://models/sand_heightmap/meshes/sandseabed.dae</uri>
           </mesh>
         </geometry>
@@ -32,7 +32,7 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <scale>0.5 0.5 0.25</scale>
+            <scale>0.1 0.1 0.05</scale>
             <uri>file://models/sand_heightmap/meshes/sandseabed.dae</uri>
           </mesh>
         </geometry>
