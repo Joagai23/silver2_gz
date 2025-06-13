@@ -6,36 +6,30 @@
       <robot_param_node>robot_state_publisher</robot_param_node>
       <parameters>$(find silver)/config/silver_controllers.yaml</parameters>
     </plugin>
-    <!-- Hydrodynamics plugin
+     <!-- Hydrodynamics plugin -->
     <plugin
       filename="gz-sim-hydrodynamics-system"
       name="gz::sim::systems::Hydrodynamics">
+      <!-- Link this plugin is attached to -->
       <link_name>base_link</link_name>
-      <!
-      <xDotU>-0.04876161</xDotU>
-      <yDotV>-1.26324739</yDotV>
-      <zDotW>-1.26324739</zDotW>
-      <kDotP>0</kDotP>
-      <mDotQ>-0.3346</mDotQ>
-      <nDotR>-0.3346</nDotR>
-      
-      
-        Note about added mass: SDFormat also supports added mass natively. 
-        Until we deprecate the added mass parameters of this plugin, do not set the added mass parameters in both places, 
-        choose one (either in this plugin or under <inertial> of your link). 
-      
-      <xUabsU>73.8</xUabsU>
+
+      <!-- Linear Damping Coefficients -->
       <xU>0</xU>
-      <yVabsV>84.9</yVabsV>
       <yV>0</yV>
-      <zWabsW>882.7</zWabsW>
       <zW>0</zW>
-      <kPabsP>-40.0</kPabsP>
+      
+      <!-- Quadratic Damping Coefficients (Halved to not crash the sim)-->
+      <xUabsU>35.0</xUabsU> <!-- 73.8 -->
+      <yVabsV>42.0</yVabsV> <!-- 84.9 -->
+      <zWabsW>440.0</zWabsW> <!-- 882.7 -->
+
+      <!-- Rotational Damping Coefficients -->
       <kP>0</kP>
-      <mQabsQ>-60.0</mQabsQ>
       <mQ>0</mQ>
-      <nRabsR>-50.0</nRabsR>
       <nR>0</nR>
-    </plugin>-->
+      <kPabsP>40.0</kPabsP>
+      <mQabsQ>60.0</mQabsQ>
+      <nRabsR>50.0</nRabsR>
+    </plugin>
   </gazebo>
 </robot>
