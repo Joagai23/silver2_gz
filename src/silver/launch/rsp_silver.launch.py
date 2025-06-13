@@ -5,6 +5,7 @@ from launch.substitutions import LaunchConfiguration, Command
 from launch_ros.actions import Node
 from launch.actions import DeclareLaunchArgument
 import xacro
+from launch_ros.parameter_descriptions import ParameterValue
 
 
 def generate_launch_description():
@@ -23,12 +24,23 @@ def generate_launch_description():
     robot_description_config = Command(['xacro ', xacro_file, ' use_ros2_control:=', use_ros2_control, ' sim_mode:=', use_sim_time])
 
     # Configure the node
-    params={'robot_description': robot_description_config, 'use_sim_time': use_sim_time}
+    '''params={'robot_description': robot_description_config, 'use_sim_time': use_sim_time}
     node_robot_state_publisher = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
         output='screen',
         parameters=[params] # add other parameters here if required
+    )'''
+
+    robot_state_publisher_node = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        output='screen',
+        parameters=[{
+            # The ParameterValue wrapper tells the launch system to treat this as a string
+            'robot_description': ParameterValue(robot_description_raw, value_type=str),
+            'use_sim_time': use_sim_time
+        }]
     )
 
     # Run the node
@@ -40,5 +52,5 @@ def generate_launch_description():
             'use_ros2_control',
             default_value='true',
             description='Use ros2_control if true'),
-            node_robot_state_publisher
+            robot_state_publisher_node
     ])
