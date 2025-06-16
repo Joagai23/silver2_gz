@@ -29,15 +29,13 @@ def generate_launch_description():
     world_path = os.path.join(package_share_dir, 'worlds', 'sand_world.sdf')
 
     # Use ros_gz_sim to launch Gazebo
-    # gz_args can be used to pass arguments to the gz sim server
     # '-r' runs the simulation immediately
     # '-s' runs server only (no GUI) - often preferred for launch files
-    # You can add '--headless-rendering' for server-side rendering if needed
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
             get_package_share_directory('ros_gz_sim'), 'launch', 'gz_sim.launch.py'
         )]),
-        launch_arguments={'gz_args': f'-r {world_path}'}.items() # Start simulation paused '-p' or running '-r'
+        launch_arguments={'gz_args': f'-r {world_path}'}.items() 
     )
 
     # Set GZ_SIM_RESOURCE_PATH
@@ -47,7 +45,6 @@ def generate_launch_description():
             os.path.join(package_share_dir, 'models'),
             ':', # Path separator
             os.path.join(os.getenv('HOME', ''), '.gz', 'sim', 'models'), # User models
-            # ':', '/usr/share/gz/sim8/models' # Add default Gz models path if needed
         ]
     )
 
@@ -100,7 +97,16 @@ def generate_launch_description():
         executable="rviz2",
         name="rviz2",
         output="log",
-        arguments=["-d", rviz_config_file], # Use the variable defined earlier
+        arguments=["-d", rviz_config_file],
+    )
+
+    # Node to run the locomotion controller
+    # This node translates /cmd_vel Twist commands into joint position commands
+    locomotion_node = Node(
+        package="silver",
+        executable="cmd_vel_control_rotation.py",
+        name="locomotion_controller",
+        output="screen"
     )
 
     # Event Handlers for Sequencing
@@ -129,5 +135,6 @@ def generate_launch_description():
         delayed_pid_position_controller_spawner,
         delayed_rviz_node,
         bridge_node,
-        gz_resource_path
+        gz_resource_path,
+        locomotion_node
     ])

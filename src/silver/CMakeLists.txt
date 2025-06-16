@@ -20,9 +20,7 @@ find_package(ament_cmake REQUIRED)
 find_package(ament_cmake_python REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclpy REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
-# find_package(<dependency> REQUIRED)
+find_package(silver_interfaces REQUIRED)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -56,6 +54,7 @@ install(PROGRAMS
   scripts/follow_joint_position_trajectory_action_client.py scripts/forward_position_publisher_silver.py
   scripts/silver_follow_joint_position_trajectory_action.py scripts/locomotion.py scripts/robot.py scripts/robot_def.py
   scripts/omnidirectional_gait.py
+  scripts/cmd_vel_control_rotation.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
