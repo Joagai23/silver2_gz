@@ -1,15 +1,4 @@
 # Silver2 Gazebo Simulation
-This is a ROS 2 Jazzy and Gazebo Sim repository for the control and simulation of the underwater legged robot SILVER2.
-
-*May 2025: Initial Prototype*
-
-![Initial Prototype](./pictures/silver2_may.png)
-
-*June 2025: Final Result*
-
-![Final Result](./pictures/silver2_june.png)
-
-## User Guide
 Welcome to the Silver hexapod underwater simulation! This guide provides step-by-step instructions for launching the Gazebo simulation and controlling the robot's movement using your keyboard.
 
 ### Prerequisites
@@ -67,3 +56,6 @@ To actually drive the robot, you need to run a second program that translates yo
 3. **Drive the Robot:** The terminal will now display instructions for controlling the robot. Make sure this second terminal window is active (clicked on) and use the keys (e.g., ```i```, ```j```, ```k```, ```l```) to move the robot around in the simulation.
 
 You have now successfully launched and are controlling the Silver hexapod!
+
+### Functionality Demonstration
+![Silver2 Stonefish Gait Controller Simulation](./media/gz_silver_demo.gif)
