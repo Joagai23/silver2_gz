@@ -24,12 +24,6 @@
 
     <!-- BODY JOINT AND LINK -->
 
-    <joint name="body_joint" type="fixed">
-        <origin xyz="0.0 0.0 0.4" rpy="0.0 0.0 0.0"/>
-        <parent link="base_link"/>
-        <child link="body_link"/>
-    </joint>
-
     <link name="body_link">
         <visual>
             <origin xyz="0.05 0.0 0.0" rpy="1.57 0.0 1.57"/>
@@ -47,6 +41,12 @@
             <origin xyz="0.0 0 0.0"/>
         </xacro:inertial_box>
     </link>
+
+    <joint name="body_joint" type="fixed">
+        <origin xyz="0.0 0.0 0.4" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="body_link"/>
+    </joint>
                                                                                    
     <xacro:leg suffix="0" reflect="1" side='right' Ox="0.275" Oy="-0.2" Oz="-0.15"/>
     <xacro:leg suffix="1" reflect="1" side='right' Ox="0.0" Oy="-0.2" Oz="-0.15"/>

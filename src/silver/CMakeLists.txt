@@ -50,10 +50,7 @@ install(
 )
 
 install(PROGRAMS
-  scripts/forward_position_publisher.py  scripts/position_trajectory_publisher.py
-  scripts/follow_joint_position_trajectory_action_client.py scripts/forward_position_publisher_silver.py
-  scripts/silver_follow_joint_position_trajectory_action.py scripts/locomotion.py scripts/robot.py scripts/robot_def.py
-  scripts/omnidirectional_gait.py
+  scripts/robot.py scripts/robot_def.py
   scripts/cmd_vel_control_rotation.py
   DESTINATION lib/${PROJECT_NAME}
 )

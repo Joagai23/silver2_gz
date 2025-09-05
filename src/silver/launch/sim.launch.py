@@ -59,8 +59,9 @@ def generate_launch_description():
             '-name', 'silver',             # Name of the entity in Gazebo
             '-allow_renaming', 'true',     # Allow renaming if the name already exists
             '-x', '0.0',                  # Initial X position
-            '-y', '-1.0',                  # Initial Y position
-            '-z', '-1.0'                   # Initial Z position
+            '-y', '0.0',                  # Initial Y position
+            '-z', '0.0',                   # Initial Z position
+            '-Y', '3.14'                     # <-- Added Yaw rotation of 90 degrees (in radians)
         ],
         output='screen'
     )

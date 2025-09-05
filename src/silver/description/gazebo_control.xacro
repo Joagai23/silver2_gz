@@ -6,30 +6,22 @@
       <robot_param_node>robot_state_publisher</robot_param_node>
       <parameters>$(find silver)/config/silver_controllers.yaml</parameters>
     </plugin>
-     <!-- Hydrodynamics plugin -->
     <plugin
       filename="gz-sim-hydrodynamics-system"
       name="gz::sim::systems::Hydrodynamics">
-      <!-- Link this plugin is attached to -->
       <link_name>base_link</link_name>
-
-      <!-- Linear Damping Coefficients -->
-      <xU>0</xU>
-      <yV>0</yV>
-      <zW>0</zW>
-      
-      <!-- Quadratic Damping Coefficients (Halved to not crash the sim)-->
-      <xUabsU>35.0</xUabsU> <!-- 73.8 -->
-      <yVabsV>42.0</yVabsV> <!-- 84.9 -->
-      <zWabsW>440.0</zWabsW> <!-- 882.7 -->
-
-      <!-- Rotational Damping Coefficients -->
-      <kP>0</kP>
-      <mQ>0</mQ>
-      <nR>0</nR>
-      <kPabsP>40.0</kPabsP>
-      <mQabsQ>60.0</mQabsQ>
-      <nRabsR>50.0</nRabsR>
+        <xU>0.296</xU>
+        <yV>0.296</yV>
+        <zW>0.592</zW>
+        <kP>0.06</kP>
+        <mQ>0.06</mQ>
+        <nR>0.08</nR>
+        <xUabsU>2.952</xUabsU>
+        <yVabsV>2.952</yVabsV>
+        <zWabsW>5.904</zWabsW>
+        <kPabsP>0.6</kPabsP>
+        <mQabsQ>0.6</mQabsQ>
+        <nRabsR>0.8</nRabsR>
     </plugin>
   </gazebo>
 </robot>
