@@ -1,3 +1,6 @@
+![Silver2 Gazebo](./media/silver2_june.png)
+
+---
 # Silver2 Gazebo Simulation
 Welcome to the Silver hexapod underwater simulation! This guide provides step-by-step instructions for launching the Gazebo simulation and controlling the robot's movement using your keyboard.
 
