@@ -61,4 +61,4 @@ To actually drive the robot, you need to run a second program that translates yo
 You have now successfully launched and are controlling the Silver hexapod!
 
 ### Functionality Demonstration
-<video controls src="media/silver2_gz.mp4" title="Silver2 Gazebo Gait Controller Simulation"></video>
+![Silver2 Gazebo Gait Controller Simulation](media/silver2_gz.gif)
