@@ -61,4 +61,4 @@ To actually drive the robot, you need to run a second program that translates yo
 You have now successfully launched and are controlling the Silver hexapod!
 
 ### Functionality Demonstration
-![Silver2 Stonefish Gait Controller Simulation](./media/silver2_gz.MP4)
+<video controls src="media/silver2_gz.mov" title="Silver2 Gazebo Gait Controller Simulation"></video>
