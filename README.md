@@ -62,3 +62,15 @@ You have now successfully launched and are controlling the Silver hexapod!
 
 ### Functionality Demonstration
 ![Silver2 Gazebo Gait Controller Simulation](media/silver2_gz.gif)
+
+## A Note on Hydrodynamics and Simulation Stability
+
+Users should be aware that the Gazebo Sim environment can exhibit physical instability, particularly when the hydrodynamics plugin is active. This may manifest as erratic robot behavior or, in some cases, a simulation crash.
+
+This issue stems from the limitations of the generic hydrodynamics plugins currently available for Gazebo Sim. These plugins can struggle to accurately and stably model the complex forces on an articulated, multi-link robot like this one, leading to solver difficulties. The current implementation uses the standard `gz-sim-hydrodynamics-system` with carefully tuned, conservative damping values and the **Bullet physics engine** to maximize stability.
+
+### Future Implementation: UUV Simulator
+
+The long-term goal is to integrate the advanced hydrodynamics models from the **UUV Simulator** project. This package was the standard for high-fidelity underwater simulation in ROS 1 / Gazebo Classic and provides much more stable and realistic plugins.
+
+However, as of now, the `UUV Simulator` has not been fully ported to the modern Gazebo Sim (formerly Ignition Gazebo) and ROS 2. **Once a stable, officially supported version becomes available, it will be integrated into this project** to resolve the current stability challenges.
