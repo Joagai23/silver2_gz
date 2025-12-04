@@ -1,76 +1,104 @@
-![Silver2 Gazebo](./media/silver2_gz.png)
+<div align="center">
+
+<img src="media/WizardCrabLogo.png" alt="SILVER2 Mascot" width="180"/>
+
+# SILVER2 - Gazebo Simulation
+
+**ROS 2 control integration testing using Gazebo Sim (formerly Ignition).**
+
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![ROS 2](https://img.shields.io/badge/ROS_2-Jazzy-22314E.svg)](https://docs.ros.org/en/jazzy/)
+[![Gazebo](https://img.shields.io/badge/Simulator-Gazebo_Sim-orange.svg)](https://gazebosim.org/home)
+
+</div>
 
 ---
-# Silver2 Gazebo Simulation
-Welcome to the Silver hexapod underwater simulation! This guide provides step-by-step instructions for launching the Gazebo simulation and controlling the robot's movement using your keyboard.
 
-### Prerequisites
-Before you begin, ensure you have a complete and working ROS 2 Jazzy environment with all the necessary packages for this project installed, including:
+## 🌊 Overview
 
-- ROS 2 Jazzy Desktop
+This repository provides the **Gazebo Sim 8 (Harmonic)** environment for the **SILVER2** robot. It is designed primarily for testing **ROS 2 Control** hardware interfaces and standard package integrations.
 
-- Gazebo for ROS 2 (```ros-jazzy-ros-gz```).
+![Silver2 Gazebo](media/silver2_gz.png)
 
-- ROS 2 Control packages (```ros-jazzy-ros2-controllers```, ```ros-jazzy-ros2-control```, ```ros-jazzy-controller-manager```, ```ros-jazzy-control-toolbox```).
+> ⚠️ **Note on Hydrodynamics:** > The standard Gazebo Sim hydrodynamics plugins can exhibit instability with complex articulated robots like SILVER2. This repository currently uses `gz-sim-hydrodynamics-system` with the Bullet physics engine for maximum stability, but users may experience solver jitters. For high-fidelity physics, please refer to our **Isaac Sim** or **Stonefish** repositories.
 
-- ROS 2 Gazebo Control packages (```ros-jazzy-gz-ros2-control```).
+---
 
-- A successfully built ```silver2_gz``` workspace.
+## 🚀 Key Features
 
-- A configured Python virtual environment (```venv```) with all required libraries (```PyYAML```, ```transforms3d```, ```Cython```).
+* **ROS 2 Control:** Uses standard `ros2_control` hardware interfaces, making it ideal for testing middleware integration.
+* **Modern Gazebo:** Built on the latest Gazebo Sim architecture.
+* **Standardization:** Follows standard ROS package structures for easy deployment.
 
-#### Step 1: Launch the Simulation Server
-This step starts the main Gazebo physics simulation and all the necessary robot controllers. The process opens the Gazebo Simulator and RVIZ as a result of a successful deployment.
+---
 
-1. **Open a new terminal.**
-2. **Run the Setup Commands:** Copy and paste the entire block below into your terminal. This will navigate to your workspace, activate the Python virtual environment, and set up the ROS 2 environment before launching the simulation.
-    ```
-    # Navigate to your workspace
-    cd ~/PathToWorkspace/silver2_gz
+## 🎥 Gallery
 
-    # Activate your Python virtual environment
-    source venv/bin/activate
+### Gait Controller Simulation
+Demonstration of the robot walking in the Gazebo environment.
 
-    # Source the ROS 2 environment and your workspace
-    source /opt/ros/jazzy/setup.bash
-    source install/setup.bash
+![Silver2 Gazebo Animation](media/silver2_gz.gif)
 
-    # Launch the simulation
-    ros2 launch silver sim.launch.py
-    ```
-Leave this terminal running. It is now hosting your simulation world.
+---## 🛠️ Installation & Usage
 
-#### Step 2: Control the Robot with Your Keyboard
-To actually drive the robot, you need to run a second program that translates your keystrokes into velocity commands.
+### 1. Prerequisites
+Ensure you have a working ROS 2 Jazzy environment with:
+* `ros-jazzy-ros-gz`
+* `ros-jazzy-ros2-control` & `ros-jazzy-ros2-controllers`
+* `ros-jazzy-gz-ros2-control`
+* Python dependencies (`PyYAML`, `transforms3d`, `Cython`) in a virtual environment (`venv`).
 
-1. **Open a SECOND, separate terminal.**
+### 2. Launch the Simulation
+This launches the Gazebo physics server, spawns the robot, and opens RViz.
 
-2. **Run the Setup Commands for the Controller:** Just like before, you need to set up the environment in this new terminal. Copy and paste the entire block below.
-    ```
-    # Activate your Python virtual environment
-    source ~/PathToWorkspace/silver2_gz/venv/bin/activate
+```bash
+# Navigate to workspace
+cd ~/PathToWorkspace/silver2_gz
 
-    # Source the ROS 2 environment
-    source ~/PathToWorkspace/silver2_gz/install/setup.bash
+# Activate Python venv
+source venv/bin/activate
 
-    # Run the keyboard teleop node
-    ros2 run teleop_twist_keyboard teleop_twist_keyboard
-    ```
-3. **Drive the Robot:** The terminal will now display instructions for controlling the robot. Make sure this second terminal window is active (clicked on) and use the keys (e.g., ```i```, ```j```, ```k```, ```l```) to move the robot around in the simulation.
+# Source ROS 2 and workspace
+source /opt/ros/jazzy/setup.bash
+source install/setup.bash
 
-You have now successfully launched and are controlling the Silver hexapod!
+# Launch simulation
+ros2 launch silver sim.launch.py
+```
 
-### Functionality Demonstration
-![Silver2 Gazebo Gait Controller Simulation](media/silver2_gz.gif)
+### 3. Control the Robot
+To drive the robot, open a **second terminal**.
 
-## A Note on Hydrodynamics and Simulation Stability
+```bash
+# Activate venv
+source ~/PathToWorkspace/silver2_gz/venv/bin/activate
 
-Users should be aware that the Gazebo Sim environment can exhibit physical instability, particularly when the hydrodynamics plugin is active. This may manifest as erratic robot behavior or, in some cases, a simulation crash.
+# Source ROS 2
+source ~/PathToWorkspace/silver2_gz/install/setup.bash
 
-This issue stems from the limitations of the generic hydrodynamics plugins currently available for Gazebo Sim. These plugins can struggle to accurately and stably model the complex forces on an articulated, multi-link robot like this one, leading to solver difficulties. The current implementation uses the standard `gz-sim-hydrodynamics-system` with carefully tuned, conservative damping values and the **Bullet physics engine** to maximize stability.
+# Run keyboard teleop
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+```
+Use keys ```i```, ```j```, ```k```, ```l``` to move the robot.
 
-### Future Implementation: UUV Simulator
+---
 
-The long-term goal is to integrate the advanced hydrodynamics models from the **UUV Simulator** project. This package was the standard for high-fidelity underwater simulation in ROS 1 / Gazebo Classic and provides much more stable and realistic plugins.
+## 🦀 The SILVER2 Project
 
-However, as of now, the `UUV Simulator` has not been fully ported to the modern Gazebo Sim (formerly Ignition Gazebo) and ROS 2. **Once a stable, officially supported version becomes available, it will be integrated into this project** to resolve the current stability challenges.
+SILVER2 is a bio-inspired robot designed for low-impact seabed interaction. This Stonefish environment is part of a larger ecosystem of simulation tools.
+
+**Check out our other simulators:**
+* **Isaac Sim Repo:** [Joagai23/silver2_isaacsim](https://github.com/Joagai23/silver2_isaacsim)
+* **Stonefish Repo:** [Joagai23/silver2_stonefish](https://github.com/Joagai23/silver2_stonefish)
+
+### Acknowledgements
+The project is carried out within the framework of the activities of the Spanish Government through the “Severo Ochoa Centre of Excellence” granted to ICM-CSIC (CEX2024-001494-S) and the Research Unit Tecnoterra (ICM-CSIC/UPC).
+
+This project is supported by the Horizon Europe [**MERLIN Project**](https://merlin-project.org/) [grant number GAP-01189796] and [**Blue Project**](https://www.blue-project.eu/) [grant number 101061354].
+
+<div align="center">
+
+
+<img src="media/WizardCrabLogo.png" width="80"/>
+
+<sub><i>"Magic happens at the bottom of the sea."</i></sub> </div>
