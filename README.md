@@ -39,7 +39,9 @@ Demonstration of the robot walking in the Gazebo environment.
 
 ![Silver2 Gazebo Animation](media/silver2_gz.gif)
 
----## 🛠️ Installation & Usage
+---
+
+## 🛠️ Installation & Usage
 
 ### 1. Prerequisites
 Ensure you have a working ROS 2 Jazzy environment with:
