@@ -24,4 +24,18 @@
         <nRabsR>0.8</nRabsR>
     </plugin>
   </gazebo>
+  <gazebo>
+    <plugin filename="libgz-sim-pose-publisher-system.so" 
+            name="gz::sim::systems::PosePublisher">
+      <publish_link_pose>false</publish_link_pose>
+      <publish_visual_pose>false</publish_visual_pose>
+      <publish_collision_pose>false</publish_collision_pose>
+      <publish_sensor_pose>false</publish_sensor_pose>
+      
+      <publish_nested_model_pose>true</publish_nested_model_pose>
+      
+      <use_pose_vector_msg>false</use_pose_vector_msg>
+      <update_frequency>50</update_frequency>
+    </plugin>
+  </gazebo>
 </robot>

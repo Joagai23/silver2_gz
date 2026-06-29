@@ -52,6 +52,7 @@ install(
 install(PROGRAMS
   scripts/robot.py scripts/robot_def.py
   scripts/cmd_vel_control_rotation.py
+  scripts/effort_logger.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

@@ -85,11 +85,10 @@ def generate_launch_description():
     bridge_node = Node(
         package="ros_gz_bridge",
         executable="parameter_bridge",
-        arguments=[
-            '--ros-args',
-            '-p',
-            f'config_file:={bridge_params}',
-        ]
+        parameters=[{
+            'config_file': bridge_params,
+            'use_sim_time': True
+        }]
     )
 
     # RViz Node
